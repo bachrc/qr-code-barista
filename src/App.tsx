@@ -1,12 +1,24 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+
+type WasmGenerator = typeof import("qr-code-generator")
 
 function App() {
-    const [urlValue, setUrlValue] = useState("")
+    const [urlValue, setUrlValue] = useState("");
+    const [wasmGenerator, setWasmGenerator] = useState<WasmGenerator| undefined>();
+
+    useEffect(() => {
+        const loadGenerator = async () => {
+            const generator = await import("qr-code-generator");
+            setWasmGenerator(generator);
+        }
+
+        loadGenerator();
+    }, []);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        console.log("L'URL est " + urlValue)
+        wasmGenerator?.greet();
     }
 
     return (
