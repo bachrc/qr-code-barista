@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from "react";
+import * as generator from "qr-code-generator"
 
-type WasmGenerator = typeof import("qr-code-generator")
+type WasmGenerator = typeof generator
 
 function App() {
     const [urlValue, setUrlValue] = useState("");
     const [wasmGenerator, setWasmGenerator] = useState<WasmGenerator| undefined>();
+    const [image, setImage] = useState<string | undefined>(undefined)
 
     useEffect(() => {
         const loadGenerator = async () => {
-            const generator = await import("qr-code-generator");
-            setWasmGenerator(generator);
+            const wasmGenerator = await import("qr-code-generator");
+            setWasmGenerator(wasmGenerator);
         }
 
         loadGenerator();
@@ -18,7 +20,11 @@ function App() {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        wasmGenerator?.greet();
+        setImage(wasmGenerator?.generate_qr_code_from_url(urlValue));
+    }
+
+    function base64Image() {
+        return "data:image/png;base64," + image;
     }
 
     return (
@@ -35,7 +41,7 @@ function App() {
                     <input className="rounded-full py-4 px-7" type="submit" value="Générer !"/>
                 </form>
                 <div className="w-1/3">
-                    Eh non
+                    { image ? <img alt="QR Code généré" src={base64Image()}/> : <>Eh non</>}
                 </div>
             </div>
         </div>
