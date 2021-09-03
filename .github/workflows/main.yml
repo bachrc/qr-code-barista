@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,3 +31,18 @@ jobs:
         working-directory: ./qr-code-generator
       - run: wasm-pack test --headless --firefox
         working-directory: ./qr-code-generator
+      - run: wasm-pack build
+        working-directory: ./qr-code-generator
+
+      - uses: actions/setup-node@v2
+      - run: yarn
+      - run: yarn build
+      - name: Deploy to production
+        uses: awb-pw/deploy-to-github-pages-action@1.1.1
+        env:
+          AUTHOR: bachrc
+          BUILD_PATH: build
+          GITHUB_PAGE_NAME: bachrc.github.io
+          PA_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
+          USERNAME: bachrc
+          EMAIL: bachrc@dessert.coffee
