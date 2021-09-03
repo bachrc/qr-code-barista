@@ -37,12 +37,9 @@ jobs:
       - uses: actions/setup-node@v2
       - run: yarn
       - run: yarn build
-      - name: Deploy to production
-        uses: awb-pw/deploy-to-github-pages-action@1.1.1
-        env:
-          AUTHOR: bachrc
-          BUILD_PATH: build
-          GITHUB_PAGE_NAME: bachrc.github.io
-          PA_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
-          USERNAME: bachrc
-          EMAIL: bachrc@dessert.coffee
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.6.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
