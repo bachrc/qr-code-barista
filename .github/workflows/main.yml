@@ -37,7 +37,7 @@ jobs:
       - run: yarn build
         name: Compilation du front
         env:
-          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+          PUBLIC_URL: "https://bachrc.github.io/qr-code-barista/"
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
