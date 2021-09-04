@@ -33,9 +33,11 @@ jobs:
       - uses: actions/setup-node@v2
         name: Mise en place de l'environnement node
       - run: yarn
-        name: Installation des dépendances node
+        name: Installation des dépendences node
       - run: yarn build
         name: Compilation du front
+        env:
+          PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
