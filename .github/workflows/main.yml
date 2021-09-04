@@ -20,26 +20,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Install
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
       - run: cargo test
         name: Launch Rust tests
         working-directory: ./qr-code-generator
-      - run: wasm-pack test --headless --chrome
-        working-directory: ./qr-code-generator
-      - run: wasm-pack test --headless --firefox
-        working-directory: ./qr-code-generator
       - run: wasm-pack build
+        name: Compilation du Webassembly
         working-directory: ./qr-code-generator
 
       - uses: actions/setup-node@v2
+        name: Mise en place de l'environnement node
       - run: yarn
+        name: Installation des dépendances node
       - run: yarn build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        name: Compilation du front
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
         with:
+          target_branch: gh-pages
+          build_dir: build
+        env:
           GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: build
