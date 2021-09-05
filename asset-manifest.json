@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "https://bachrc.github.io/qr-code-barista/static/css/main.66c82d9e.chunk.css",
+    "main.js": "https://bachrc.github.io/qr-code-barista/static/js/main.a842c6ed.chunk.js",
+    "main.js.map": "https://bachrc.github.io/qr-code-barista/static/js/main.a842c6ed.chunk.js.map",
+    "runtime-main.js": "https://bachrc.github.io/qr-code-barista/static/js/runtime-main.3a509ff6.js",
+    "runtime-main.js.map": "https://bachrc.github.io/qr-code-barista/static/js/runtime-main.3a509ff6.js.map",
+    "static/js/2.b661b7bc.chunk.js": "https://bachrc.github.io/qr-code-barista/static/js/2.b661b7bc.chunk.js",
+    "static/js/2.b661b7bc.chunk.js.map": "https://bachrc.github.io/qr-code-barista/static/js/2.b661b7bc.chunk.js.map",
+    "static/js/3.625865e0.chunk.js": "https://bachrc.github.io/qr-code-barista/static/js/3.625865e0.chunk.js",
+    "c742d85e996a985b5057.module.wasm": "https://bachrc.github.io/qr-code-barista/c742d85e996a985b5057.module.wasm",
+    "static/js/3.625865e0.chunk.js.map": "https://bachrc.github.io/qr-code-barista/static/js/3.625865e0.chunk.js.map",
+    "static/js/4.5d966688.chunk.js": "https://bachrc.github.io/qr-code-barista/static/js/4.5d966688.chunk.js",
+    "static/js/4.5d966688.chunk.js.map": "https://bachrc.github.io/qr-code-barista/static/js/4.5d966688.chunk.js.map",
+    "index.html": "https://bachrc.github.io/qr-code-barista/index.html",
+    "static/css/main.66c82d9e.chunk.css.map": "https://bachrc.github.io/qr-code-barista/static/css/main.66c82d9e.chunk.css.map",
+    "static/js/2.b661b7bc.chunk.js.LICENSE.txt": "https://bachrc.github.io/qr-code-barista/static/js/2.b661b7bc.chunk.js.LICENSE.txt",
+    "static/media/logo.c03bcf12.png": "https://bachrc.github.io/qr-code-barista/static/media/logo.c03bcf12.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a509ff6.js",
+    "static/js/2.b661b7bc.chunk.js",
+    "static/css/main.66c82d9e.chunk.css",
+    "static/js/main.a842c6ed.chunk.js"
+  ]
+}
