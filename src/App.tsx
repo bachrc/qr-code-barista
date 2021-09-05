@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import * as generator from "qr-code-generator"
+import logo from "./assets/logo.png"
 
 type WasmGenerator = typeof generator
 
@@ -29,8 +30,9 @@ function App() {
 
     return (
         <div className="h-screen w-screen bg-indigo-50">
-            <div className="flex">
-                <div className="rounded-lg h-auto py-3 px-6 bg-indigo-200 flex flex-col sm:flex-row container gap-8 mx-auto m-16">
+            <div className="flex flex-col container mx-auto">
+                <img className="w-full max-w-xl my-6 self-center" alt="Logo QR Code Barista" src={logo} />
+                <div className="rounded-lg h-auto py-3 px-6 bg-indigo-200 flex flex-col md:flex-row gap-8">
                     <form className="flex flex-col w-full gap-5 self-center" onSubmit={handleSubmit}>
                         <span className="font-bold text-center md:text-left">Veuillez entrer l'adresse à infuser</span>
                         <input className="px-7 py-3 rounded-full w-full"
