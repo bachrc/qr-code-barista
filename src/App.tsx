@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import * as generator from "qr-code-generator"
 import logo from "./assets/logo.png"
+import {QrCode} from "./QrCode";
 
 type WasmGenerator = typeof generator
 
@@ -24,10 +25,6 @@ function App() {
         setImage(wasmGenerator?.generate_qr_code_from_url(urlValue));
     }
 
-    function base64Image() {
-        return "data:image/png;base64," + image;
-    }
-
     return (
         <div className="h-screen w-screen bg-indigo-50">
             <div className="flex flex-col container mx-auto">
@@ -43,10 +40,10 @@ function App() {
                         />
                         <input className="rounded-full py-4 px-7 bg-indigo-100 font-bold" type="submit" value="Générer !"/>
                     </form>
-                    <div className="w-auto md:w-1/3 flex items-center justify-center italic">
+                    <div className="w-auto md:w-1/3 flex items-center justify-center">
                         { image ?
-                            <img alt="QR Code généré" src={base64Image()}/> :
-                            <>Votre QR Code sera infusé ici</>
+                            <QrCode qrCode={image} />:
+                            <span className="italic">Votre QR Code sera infusé ici</span>
                         }
                     </div>
                 </div>
