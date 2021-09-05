@@ -28,20 +28,25 @@ function App() {
     }
 
     return (
-        <div className="flex items-center justify-center h-screen bg-indigo-50">
-            <div className="rounded-lg py-3 px-6 bg-indigo-200 flex flex-col sm:flex-row container mx-auto gap-8">
-                <form className="flex flex-col w-2/3 gap-5" onSubmit={handleSubmit}>
-                    <span className="font-bold">Veuillez entrer (s'il vous plait) l'adresse</span>
-                    <input className="px-7 py-3 rounded-full w-full"
-                           value={urlValue}
-                           onChange={e => setUrlValue(e.target.value)}
-                           type="text"
-                           placeholder="Entrez l'URL ici"
-                    />
-                    <input className="rounded-full py-4 px-7" type="submit" value="Générer !"/>
-                </form>
-                <div className="w-1/3">
-                    { image ? <img alt="QR Code généré" src={base64Image()}/> : <>Eh non</>}
+        <div className="h-screen w-screen bg-indigo-50">
+            <div className="flex">
+                <div className="rounded-lg h-auto py-3 px-6 bg-indigo-200 flex flex-col sm:flex-row container gap-8 mx-auto m-16">
+                    <form className="flex flex-col w-full gap-5 self-center" onSubmit={handleSubmit}>
+                        <span className="font-bold text-center md:text-left">Veuillez entrer l'adresse à infuser</span>
+                        <input className="px-7 py-3 rounded-full w-full"
+                               value={urlValue}
+                               onChange={e => setUrlValue(e.target.value)}
+                               type="text"
+                               placeholder="Entrez l'URL ici"
+                        />
+                        <input className="rounded-full py-4 px-7 bg-indigo-100 font-bold" type="submit" value="Générer !"/>
+                    </form>
+                    <div className="w-auto md:w-1/3 flex items-center justify-center italic">
+                        { image ?
+                            <img alt="QR Code généré" src={base64Image()}/> :
+                            <>Votre QR Code sera infusé ici</>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
